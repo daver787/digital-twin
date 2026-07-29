@@ -1,0 +1,21 @@
+{
+  "full_name": "David Matthew Espinola",
+  "name": "Dave",
+  "current_role": "Business Intelligence Analyst",
+  "location": "San Antonio, Texas",
+  "email": "daver787@gmail.com",
+  "linkedin": "https://www.linkedin.com/in/david-espinola/",
+  "specialties": [
+    "Data Science",
+    "GIS",
+    "Visualization"
+  ],
+  "years_experience": 10,
+  "education": [
+    {
+      "degree": "Master of Science",
+      "institution": "University of Texas at San Antonio",
+      "year": "2017"
+    }
+  ]
+}
