@@ -39,6 +39,14 @@ resource "aws_s3_bucket_ownership_controls" "memory" {
   }
 }
 
+# add time_sleep resource
+
+resource "time_sleep" "wait_for_bpa" {
+  depends_on = [aws_s3_bucket_public_access_block.frontend]
+
+  create_duration = "15s"
+}
+
 # S3 bucket for frontend static website
 resource "aws_s3_bucket" "frontend" {
   bucket = "${local.name_prefix}-frontend-${data.aws_caller_identity.current.account_id}"
@@ -82,7 +90,8 @@ resource "aws_s3_bucket_policy" "frontend" {
     ]
   })
 
-  depends_on = [aws_s3_bucket_public_access_block.frontend]
+#depends_on = [aws_s3_bucket_public_access_block.frontend]
+  depends_on = [time_sleep.wait_for_bpa]
 }
 
 # IAM role for Lambda
